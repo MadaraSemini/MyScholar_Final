@@ -3,6 +3,7 @@
      include_once("Product.php");
      include_once("Factory.php");
      include_once("Product.php");
+     include_once("../../config/ConnectSingleton.php");
 
 
     class StudentFactory extends Factory{
