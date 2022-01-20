@@ -1,14 +1,14 @@
 <?php
 
-    include_once("classes/connector.php");
-    include_once("classes/User.php");
-    include_once("classes/Teacher.php");
+    include_once("../Private/config/ConnectSingleton.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/Teacher.php");
     session_start();
     $teacher = $_SESSION['obj'];
     $teacher_id = $teacher->getId();
 
-    $connector = new Connector();
-    $conn = $connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $conn = $connector->getConnection();
 
     if($conn->connect_error) {
         die("Connection Failed: " .$conn->connect_error);

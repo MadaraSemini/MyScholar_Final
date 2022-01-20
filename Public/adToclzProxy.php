@@ -1,16 +1,16 @@
 <?php
-    include_once("classes/connector.php");
-    include_once("classes/Request.php");
-    include_once("classes/State/State.php");
-    include_once("classes/State/Requested.php");
-    include_once("classes/User.php");
-    include_once("classes/student.php");
+    include_once("../Private/config/ConnectorSingleton.php");
+    include_once("../Private/classes/Request.php");
+    include_once("../Private/classes/State/State.php");
+    include_once("../Private/classes/State/Requested.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/student.php");
     session_start();
     
     $clsId = $_GET['clsId'];
 
-    $connector = new Connector();
-    $conn = $connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $conn = $connector->getConnection();
 
     if (isset($_SESSION['obj'])) {
 
@@ -36,11 +36,11 @@
 ?>
 <html>
     <head>  
-        <link rel="stylesheet" href="adToClzProxy.css">
-        <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
-    <link rel="stylesheet" href="logout.css">
+        <link rel="stylesheet" href="css/adToClzProxy.css">
+        <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+    <link rel="stylesheet" href="css/logout.css">
     <title>Request</title>
     </head>
     <body>
