@@ -1,11 +1,11 @@
 <?php
 
-include_once("classes/User.php");
-include_once("classes/student.php");
-include_once("classes/uploader.php");
-include_once("classes/connector.php");
-include_once("classes/FactoryDP/studentFactory.php");
-include_once("classes/FactoryDP/Factory.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/uploader.php");
+include_once("../Private/classes/connector.php");
+include_once("../Private/classes/FactoryDP/studentFactory.php");
+include_once("../Private/classes/FactoryDP/Factory.php");
 
 
 

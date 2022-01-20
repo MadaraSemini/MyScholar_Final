@@ -1,11 +1,13 @@
 <?php
-include_once("classes/User.php");
-include_once("classes/student.php");
-include_once("classes/Teacher.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/config/ConnectSingleton.php");
 session_start();
-$connector = new Connector();
-$con = $connector->connectDatabase();
+// $connector = new Connector();
+// $con = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$con = $connector->getConnection();
 
 $logged = false;
 if (isset($_SESSION['obj'])) {
@@ -35,12 +37,12 @@ if (isset($_SESSION['obj'])) {
     <!-- <script src="counter.js"></script> -->
 
 
-    <link rel="stylesheet" href="counter.css">
+    <link rel="stylesheet" href="css/counter.css">
 
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
     <title>Home</title>
 </head>
@@ -55,84 +57,10 @@ if (isset($_SESSION['obj'])) {
     </div>
     <div class="header">
 
-        <!-- Form for student login -->
-        <!-- <div id="id01" class="modal">
-      
-        <form class="modal-content animate" action="studentLogin.php" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="Images/StudentLogin.png" alt="Avatar" class="avatar">
-            </div>
-          
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-          
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                  
-                <button type="submit" onclick="">Login</button>
-                <label>
-                  <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-          
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="signin">New user?  <a href="studentForm.html">Create account</a></span>
-            </div>
-        </form>
-    </div> -->
-
-        <!-- Form for teacher login
-    <div id="id02" class="modal">
-      
-        <form class="modal-content animate" action="#" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="Images/TeacherLogin.png" alt="Avatar" class="avatar">
-            </div>
-          
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-          
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                  
-                <button type="submit">Login</button>
-                <label>
-                  <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-          
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="signin">New user?  <a href="teacherForm.html">Create account</a></span>
-            </div>
-        </form>
-    </div> -->
-
-        <!-- <script>
-        // Get the modal
-        var modal1 = document.getElementById('id01');
-        var modal2 = document.getElementById('id02');
-          
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal1) {
-                modal1.style.display = "none";
-            }
-            if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
-        }
-    </script> -->
-
         <!-- navigation bar -->
         <div class="topnav">
             <a href="index.php">Home</a>
-            <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id1 <?php if($student instanceof Student){?>href="dashboard.php"<?php }else{?>href="teacherDashboard.php"<?php }?>>Dashboard</a></div>
+            <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id1 <?php if ($student instanceof Student) { ?>href="dashboard.php" <?php } else { ?>href="teacherDashboard.php" <?php } ?>>Dashboard</a></div>
             <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id3 style="float: right;" onclick="document.getElementById('id01').style.display='block'">Log out</a></div>
 
 

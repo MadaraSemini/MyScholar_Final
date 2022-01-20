@@ -7,7 +7,7 @@ body, html {
 }
 
 .hero-image {
-    background-image: url("Images/logo2.png");
+    background-image: url("../../Private/Images/logo2.png");
     background-color:#3a9dcf/* #89DCFD*/;
     height: 50%;
     background-position: center;
@@ -202,7 +202,7 @@ button:hover {
   }
   
   .flip-box-front, .flip-box-back {
-    background-image: url("Images/AboutUs.jpg");
+    background-image: url("../../Private/Images/AboutUs.jpg");
     background-size: cover;
     text-align: center;
     padding: 200px 0;
