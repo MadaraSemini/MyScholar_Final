@@ -54,7 +54,7 @@
         
         if ($result2 === TRUE and $result1 === TRUE) {//session
             echo "New record created";
-            header("Location: adCollection.php");
+            header("Location: adCollectionWithFactory.php");
         }else {
             echo "Error: " . $result1 . "<br>" . $conn->error;
         }
