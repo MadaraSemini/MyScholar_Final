@@ -21,8 +21,8 @@ $teacher = $_SESSION['teacher'];
 
 $teacher_id = $teacher->getId();
 
-$connector = new Connector();
-$con = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$con = $connector->getConnection();
 
 $sql1 = "SELECT * FROM class WHERE Id='$class_id'";
 $result1 = mysqli_query($con, $sql1);

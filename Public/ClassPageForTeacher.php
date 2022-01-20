@@ -65,9 +65,9 @@ $name = $user->getUsername();
 
     <?php 
     
-        $connector = new Connector();
-        $connec = $connector->connectDatabase();
-
+        $connector = ConnectSingleton::getInstance();
+        $connec = $connector->getConnection();
+        
         $id = $_GET['id'];
         $ClassFactory = new ClassFactory();
         $class = $ClassFactory->anOperation2($id);

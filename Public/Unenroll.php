@@ -26,8 +26,8 @@ if(isset($_GET["yescls"]) && isset($_GET["yesstd"])){
     $cls_id = $_GET['yescls'];
     $std_id = $_GET['yesstd'];
 
-    $connector = new Connector();
-    $con = $connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $con = $connector->getConnection();
 
     $sql = "SELECT * FROM student_class WHERE class_id='$cls_id' AND student_id='$std_id'";
     $result = mysqli_query($con, $sql);

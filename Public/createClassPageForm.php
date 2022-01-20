@@ -39,8 +39,8 @@
                 $location = null;
             }
 
-            $connector = new Connector();
-            $con = $connector->connectDatabase();
+            $connector = ConnectSingleton::getInstance();
+            $con = $connector->getConnection();
 
             $subject = mysqli_real_escape_string($con, $_POST['subject']);
             $fee = mysqli_real_escape_string($con, $_POST['fee']);

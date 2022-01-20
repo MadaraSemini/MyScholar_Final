@@ -42,8 +42,8 @@ if(isset($_POST["submit"])){
     }
     
 
-    $connector = new Connector();
-    $con = $connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $con = $connector->getConnection();
 
     $title = mysqli_real_escape_string($con, "$title");
     $fileNameNew = mysqli_real_escape_string($con, "$fileNameNew");
