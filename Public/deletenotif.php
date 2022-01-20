@@ -1,8 +1,10 @@
 <?php
-include_once("classes/connector.php");
+include_once("../Private/config/ConnectSingleton.php");
 
-$connector = new Connector();
-$connec = $connector->connectDatabase();
+// $connector = new Connector();
+// $connec = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 
 if (isset($_GET['id'])) {
     $delete_id = $_GET['id'];
