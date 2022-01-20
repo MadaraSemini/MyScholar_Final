@@ -1,9 +1,9 @@
 <?php
 
-    include_once("classes/User.php");
-    include_once("classes/student.php");
-    include_once("classes/connector.php");
-    include_once("classes/uploader.php");
+    include_once("../private/classes/User.php");
+    include_once("../private/classes/student.php");
+    include_once("../Private/config/ConnectSingleton.php");
+    include_once("../Private/classes/uploader.php");
 
     session_start();
     
@@ -99,8 +99,8 @@
                           
     
     
-                $connector=new Connector();
-                $connec=$connector->connectDatabase();
+                $connector = ConnectSingleton::getInstance();
+                $connec = $connector->getConnection();
                
                 /*$connec=mysqli_connect("localhost","root","","myscholar");
                 if(!$connec){
@@ -152,7 +152,7 @@
                     
                     $filename = $_FILES["image"]["name"];
                     $tempname = $_FILES["image"]["tmp_name"];
-                    $folder = "uploads/".$filename; 
+                    $folder = "../Private/uploads/".$filename; 
 
                     
                     $student->setProfPhoto($folder);  
@@ -202,11 +202,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="studentForm.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/studentForm.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="cs/theme.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <title>Edit Profile</title>
     
 </head>

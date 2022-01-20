@@ -1,9 +1,9 @@
 <?php
 
-    include_once("classes/User.php");
-    include_once("classes/teacher.php");
-    include_once("classes/connector.php");
-    include_once("classes/uploader.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/teacher.php");
+    include_once("../Private/config/ConnectSingleton.php");
+    include_once("../Private/classes/uploader.php");
 
     session_start();
     
@@ -94,7 +94,7 @@
             }else{
                 $filename = $_FILES["image"]["name"];
                 $tempname = $_FILES["image"]["tmp_name"];
-                $folder = "uploads/".$filename; 
+                $folder = "../Private/uploads/".$filename; 
                 $teacher->setProfPhoto($folder);  
                 $photo_name=$teacher->getProfPhoto();
                 $file_uploader=new Uploader($filename,$tempname,$folder);
@@ -130,11 +130,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edir Profile</title>
-    <link rel="stylesheet" href="teacherForm.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/teacherForm.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 </head>
 <body>
     <!-- navigation bar -->
