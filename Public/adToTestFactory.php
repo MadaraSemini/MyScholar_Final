@@ -45,7 +45,7 @@
         $row = mysqli_fetch_array($result);
         $fname = $row['first_name'];
         $lname = $row['last_name'];
-        $image = "uploads/";
+        $image = "../Private/uploads/";
 
         if(!empty($row['profile_photo'])){
             $image.=$row['profile_photo'];
@@ -72,7 +72,7 @@
         $heading = $ad->getHeading();
         $description = $ad->getDescription();
         $background = $ad->getBackground();
-        $background = "AdBackgrounds/".$background;
+        $background = "../Private/Backgrouns/AdBackgrounds/".$background;
 
 
         $adCls_qry="SELECT * FROM advertisement_class WHERE ad_id = $ad_id";
@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
     $queryRun2=mysqli_query($conn,$query);
 
     if ($queryRun === TRUE && $queryRun2 == TRUE) {
-        header("Location: adcollection.php");
+        header("Location: adcollectionWithFactory.php");
     }else {
         echo "Error: " . $queryRun . "<br>" . $conn->error;
     }
