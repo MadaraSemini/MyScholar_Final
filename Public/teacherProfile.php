@@ -1,13 +1,13 @@
 <?php
 
-    include_once("classes/connector.php");
+    include_once("../Private/config/ConnectSingleton.php");
     //include_once("classes/User.php");
-    include_once("classes/Teacher.php");
-    include_once("classes/rating.php");
+    include_once("../private/classes/Teacher.php");
+    include_once("../Private/classes/rating.php");
 
     session_start();
-    $connector=new Connector();
-    $connec=$connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $connec = $connector->getConnection();
     $logged = false;
     if (isset($_SESSION['obj'])) {
     $logged = true;
@@ -37,8 +37,8 @@
     $district=$teacher->getDistrict();
     $email=$teacher->getEmail();
 
-    if ($photo_name=="uploads/"){
-        $photo_name = 'uploads/default.jpg';
+    if ($photo_name=="../Private/uploads/"){
+        $photo_name = '../Private/uploads/default.jpg';
     }
 
     
@@ -129,11 +129,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
     <title>Teacher Profile</title>
-    <link rel="stylesheet" href="teacherProfile.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/teacherProfile.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>

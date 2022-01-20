@@ -1,9 +1,9 @@
 <?php
  
-    include_once("classes/User.php");
-    include_once("classes/Teacher.php");
-    include_once("classes/connector.php");
-    include_once("classes/uploader.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/Teacher.php");
+    include_once("../Private/config/ConnectSingleton.php");
+    include_once("../Private/classes/uploader.php");
 
     if(isset($_POST["submit"])){
 
@@ -31,15 +31,14 @@
             
             $filename = $_FILES["image"]["name"];
             $tempname = $_FILES["image"]["tmp_name"];
-            $folder = "uploads/".$filename;    
+            $folder = "../private/uploads/".$filename;    
 
             $file_uploader=new Uploader($filename,$tempname,$folder);
 
-            $folder = "ProfilePics/".$filename;
+            $folder = "../Private/uploads/".$filename;
 
-            $connector=new Connector();
-            $connec=$connector->connectDatabase();
-
+            $connector = ConnectSingleton::getInstance();
+            $connec = $connector->getConnection();
 
             /*$connec=mysqli_connect("localhost","root","","myscholar");
             if(!$connec){
@@ -109,10 +108,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
     <title>Teacher register form</title>
-    <link rel="stylesheet" href="teacherForm.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/teacherForm.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
 </head>
 <body>
