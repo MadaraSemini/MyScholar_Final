@@ -1,5 +1,5 @@
 <?php
-
+include_once("../../config/ConnectSingleton.php");
 include_once("AdTemp.php");
 include_once("Factory.php");
 include_once("Product.php");
@@ -7,9 +7,9 @@ include_once("Product.php");
 
 class AdFactory extends Factory{
     public function factoryMethod2($id):Product{
-        $connector=new Connector();
-        $conn=$connector->connectDatabase();
-        //$conn = mysqli_connect("localhost","root","","myscholar");
+        $connector = ConnectSingleton::getInstance();
+        $conn = $connector->getConnection();
+        
         $sql = "SELECT * FROM advertisement WHERE Id=$id";
         $sql = mysqli_query($conn,$sql);
         $row = $sql->fetch_array();
