@@ -238,7 +238,7 @@ $conn = $connector->getConnection();
 
 
                         <h2><?php echo $fname . " " . $lname; ?></h2>
-                        <h5>Rating: </h5>
+                        
                     </div>
                     <div class="col2">
                         <h1><?php echo $heading; ?></h1>

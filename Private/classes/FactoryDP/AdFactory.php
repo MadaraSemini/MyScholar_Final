@@ -1,5 +1,5 @@
 <?php
-include_once("../../config/ConnectSingleton.php");
+//include_once("../../config/ConnectSingleton.php");
 include_once("AdTemp.php");
 include_once("Factory.php");
 include_once("Product.php");
