@@ -1,6 +1,6 @@
 <?php
+include_once("../Private/config/ConnectSingleton.php");
 session_start();
-require "config/connect.php";
 
 if (isset($_POST['logout'])) {
     session_destroy();
