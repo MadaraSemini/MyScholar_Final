@@ -8,8 +8,8 @@
     class TeacherFactory extends Factory{
         public function factoryMethod($username,$encrypted_password): Product
         {
-            $connector=new Connector();
-            $connec=$connector->connectDatabase();
+            $connector = ConnectSingleton::getInstance();
+            $connec = $connector->getConnection();
 
             $query="select * from teacher WHERE Username='$username' AND Passkey='$encrypted_password'";
             $query_run=mysqli_query($connec,$query);
@@ -25,9 +25,9 @@
                 $designation=$row['designation'];
                 $description=$row['description'];
                 $contact=$row['contact_number'];
-                $profilePhoto="uploads/".$row['profile_photo'];
-                if ($profilePhoto=="uploads/"){
-                    $profilePhoto = 'uploads/default.jpg';
+                $profilePhoto="../Private/uploads/".$row['profile_photo'];
+                if ($profilePhoto=="../Private/uploads/"){
+                    $profilePhoto = '../Private/Images/default.jpg';
                 }
             
             

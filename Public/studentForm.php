@@ -1,9 +1,9 @@
 <?php
-    include_once("classes/User.php");
-    include_once("classes/student.php");  
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/student.php");  
     //include_once("classes/composite.php");
-    include_once("classes/uploader.php");
-    include_once("classes/connector.php");
+    include_once("../Private/classes/uploader.php");
+    include_once("../Private/config/ConnectSingleton.php");
 
 
     if(isset($_POST["submit"])){
@@ -37,7 +37,7 @@
 
             $filename = $_FILES["image"]["name"];
             $tempname = $_FILES["image"]["tmp_name"];
-            $folder = "uploads/".$filename; 
+            $folder = "../Private/uploads/".$filename; 
 
             $file_uploader=new Uploader($filename,$tempname,$folder);
             
@@ -46,8 +46,8 @@
                       
 
 
-            $connector=new Connector();
-            $connec=$connector->connectDatabase();
+            $connector = ConnectSingleton::getInstance();
+            $connec = $connector->getConnection();
            
             /*$connec=mysqli_connect("localhost","root","","myscholar");
             if(!$connec){
@@ -103,10 +103,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <title>Student register form</title>
-    <link rel="stylesheet" href="studentForm.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/studentForm.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="../Private//Images/icon.png">
 </head>
 <body>
 <!-- navigation bar -->
@@ -190,7 +190,7 @@
         </script>
      
 <!-- validation -->     
-      <script src="studentForm.js"></script>
+      <script src="js/studentForm.js"></script>
       </div>     
       <script type="text/javascript">
 

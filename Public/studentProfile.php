@@ -1,11 +1,11 @@
 <?php
-include_once("classes/User.php");
-include_once("classes/student.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/config/ConnectSingleton.php");
 
 session_start();
-$connector = new Connector();
-$connec = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 /*$connec=mysqli_connect("localhost","root","","myscholar");
     if(!$connec){
         echo("connection error".mysqli_connect_error()."<br/>");
@@ -30,8 +30,8 @@ $photo_name=$student->getProfPhoto();
 $email=$student->getEmail();
 $district=$student->getDistrict();
 
-if ($photo_name=="uploads/"){
-    $photo_name = 'uploads/default.jpg';
+if ($photo_name=="../Private/uploads/"){
+    $photo_name = '../Private/uploads/default.jpg';
 }
 
 
@@ -88,11 +88,11 @@ $posts3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
     <title>Profile page</title>
-    <link rel="stylesheet" href="studentProfile.css" type="text/css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/studentProfile.css" type="text/css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 </head>
 
 <body>
