@@ -1,5 +1,5 @@
 <?php
-    include_once("../Private/config/ConnectorSingleton.php");
+    include_once("../Private/config/ConnectSingleton.php");
     include_once("../Private/classes/Request.php");
     include_once("../Private/classes/State/State.php");
     include_once("../Private/classes/State/Requested.php");

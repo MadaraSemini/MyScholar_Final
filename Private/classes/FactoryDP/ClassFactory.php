@@ -1,5 +1,5 @@
 <?php
-
+include_once("../../config/ConnectSingleton.php");
 include_once("Factory.php");
 include_once("Class.php");
 include_once("Product.php");
@@ -14,8 +14,8 @@ class ClassFactory extends Factory{
     }
 
     public function factoryMethod2($id): Product{
-        $connector=new Connector();
-        $conn=$connector->connectDatabase();
+        $connector = ConnectSingleton::getInstance();
+        $conn = $connector->getConnection();
 
         $query1 = "SELECT * FROM class WHERE Id='$id'";
         $query_run1 = mysqli_query($conn, $query1);
