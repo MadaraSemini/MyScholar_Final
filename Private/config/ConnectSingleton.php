@@ -13,8 +13,8 @@
             $this->host="localhost";
             $this->user="root";
             $this->password="";
-            $this->db="myscholar";
-            $connection=mysqli_connect("localhost","root","","myscholar");
+            $this->db="myscholar2";
+            $connection=mysqli_connect("localhost","root","","myscholar2");
             $this->connec = $connection;
             if(!$connection){
                 echo("connection error".mysqli_connect_error()."<br/>");

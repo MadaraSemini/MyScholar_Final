@@ -7,6 +7,16 @@
     include_once("../Private/classes/FactoryDP/AdTemp.php");
     include_once("../Private/classes/FactoryDP/Product.php");
     session_start();
+    $logged = false;
+if (isset($_SESSION['obj'])) {
+    $logged = true;
+    $student = $_SESSION['obj'];
+
+    $id = $student->getId();
+    $name = $student->getUsername();
+} else {
+    $logged = false;
+}
 
     $teacher = $_SESSION['obj'];
     $tcrId = $teacher->getId();
@@ -28,16 +38,42 @@
     <link rel="stylesheet" href="css/advertisement.css">
 <link rel="stylesheet" href="css/theme.css">
 <link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/logout.css">
 <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+<title>Edit Advertisment</title>
 
 
 </head>
 <body>
-<!-- navigation bar -->
-<div class="topnav">
-        <a href="index.php">Home</a>
-        <a style="float:right" id=id2 href="contactUs.php">Contact us</a>
-    </div>
+ <!-- navigation bar -->
+ <div class="topnav">
+            <a href="index.php">Home</a>
+            <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id1 <?php if ($student instanceof Student) { ?>href="dashboard.php" <?php } else { ?>href="teacherDashboard.php" <?php } ?>>Dashboard</a></div>
+            <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id3 style="float: right;" onclick="document.getElementById('id01').style.display='block'">Log out</a></div>
+
+
+
+
+            <div id="id01" class="logout">
+                <div class="logout_msg animate">
+                    <div class="top">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h1>Log Out</h1>
+                    <p><?php echo $name ?> are you sure you want to log out?</p>
+                    <!-- <p>Are you sure you want to Log out?</p> -->
+                    <!-- <input type="button" class="yes" name="logout"  value="Yes"> -->
+                    <form action="classCard.php" method="post">
+                        <button id="log" type="submit" class="yes" name="logout">Yes</button>
+                        <button id="log" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">No</button>
+                    </form>
+
+
+                </div>
+            </div>
+
+            <a style="float:right" id=id2 href="contactUs.php">Contact us</a>
+        </div>
 
     <?php
         $teacherqry = "SELECT * FROM teacher WHERE Id = $tcrId";
