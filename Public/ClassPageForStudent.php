@@ -1,14 +1,14 @@
 <?php 
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
-include_once("classes/student.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/connector.php");
 //------------------------------
-include_once("classes/rating.php");
+include_once("../Private/classes/rating.php");
 //------------------------------
-include_once("classes/FactoryDP/ratingFactory.php");
-include_once("classes/FactoryDP/Factory.php");
-include_once("classes/FactoryDP/ClassFactory.php");
+include_once("../Private/classes/FactoryDP/ratingFactory.php");
+include_once("../Private/classes/FactoryDP/Factory.php");
+include_once("../Private/classes/FactoryDP/ClassFactory.php");
 
 
 session_start(); 
@@ -37,12 +37,12 @@ $student_id=$student->getId();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
     <title> Class Page For Student </title>
-    <link rel="stylesheet" href="ClassPageForStudent.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="temporary.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/ClassPageForStudent.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/temporary.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 </head>
 <body>
     <!-- navigation bar -->

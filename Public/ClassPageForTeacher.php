@@ -1,10 +1,10 @@
 <?php 
  
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
-include_once("classes/connector.php");
-include_once("classes/FactoryDP/Class.php");
-include_once("classes/FactoryDP/ClassFactory.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/classes/connector.php");
+include_once("../Private/classes/FactoryDP/Class.php");
+include_once("../Private/classes/FactoryDP/ClassFactory.php");
 
 session_start();
 $logged = false;
@@ -27,11 +27,11 @@ $name = $user->getUsername();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
     <title> Class Page For Teacher </title>
-    <link rel="stylesheet" href="ClassPageForTeacher.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/ClassPageForTeacher.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 </head>
 <body>
     <!-- navigation bar -->

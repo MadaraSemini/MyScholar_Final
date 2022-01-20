@@ -1,13 +1,13 @@
 <?php
 
-include_once("classes/connector.php");
-include_once("classes/Request.php");
-include_once("classes/State/State.php");
-include_once("classes/State/Requested.php");
-include_once("classes/State/Accepted.php");
-include_once("classes/State/Closed.php");
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
+include_once("../Private/classes/connector.php");
+include_once("../Private/classes/Request.php");
+include_once("../Private/classes/State/State.php");
+include_once("../Private/classes/State/Requested.php");
+include_once("../Private/classes/State/Accepted.php");
+include_once("../Private/classes/State/Closed.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
 
 session_start();
 
@@ -143,11 +143,11 @@ if (isset($_GET['accept'])) {
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
-  <link rel="stylesheet" href="navbar.css">
-  <link rel="stylesheet" href="logout.css">
-  <link rel="stylesheet" href="ReqAcceptDecline.css">
-  <link rel="icon" type="image/x-icon" href="Images/icon.png">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/logout.css">
+  <link rel="stylesheet" href="css/ReqAcceptDecline.css">
+  <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+  <link rel="stylesheet" href="css/theme.css">
 
   
   <title> Class Requests </title>
