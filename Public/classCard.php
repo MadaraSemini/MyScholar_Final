@@ -22,11 +22,11 @@ mysqli_close($con)
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="classCard.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
-    <link rel="stylesheet" href="logout.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/classCard.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+    <link rel="stylesheet" href="css/logout.css">
 
     <title>Class</title>
 </head>
