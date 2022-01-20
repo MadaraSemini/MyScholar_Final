@@ -1,5 +1,5 @@
 <?php
-    include_once("../Private/config/ConnectorSingleton.php");
+    include_once("../Private/config/ConnectSingleton.php");
     include_once("../Private/classes/User.php");
     include_once("../Private/classes/Teacher.php");
     include_once("../Private/classes/FactoryDP/Factory.php");
@@ -15,20 +15,20 @@
     $connector = ConnectSingleton::getInstance();
     $conn = $connector->getConnection();
 
-   // $sql = "SELECT * FROM advertisement WHERE Id = $ad_id";
-    //$sql = mysqli_query($conn,$sql);
-    //if(mysqli_num_rows($sql)<=0){
-       // header("Location: adcollection.php");
-   // }
+    $sql = "SELECT * FROM advertisement WHERE Id = $ad_id";
+    $sql = mysqli_query($conn,$sql);
+    if(mysqli_num_rows($sql)<=0){
+        header("Location: adCollectionWithFactory.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="advertisement.css">
-<link rel="stylesheet" href="theme.css">
-<link rel="stylesheet" href="navbar.css">
-<link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/advertisement.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
 
 </head>
@@ -65,6 +65,7 @@
         //$adRow=mysqli_fetch_array($ad_result);
         $factory = new AdFactory();
         $ad = $factory->anOperation2($ad_id);
+        
 
         //$heading = $adRow['heading'];
         //$description = $adRow['description'];
