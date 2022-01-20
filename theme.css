@@ -1,0 +1,23 @@
+  /* body{
+    background: url("Images/logo1.png") no-repeat center fixed;
+    background-color:rgb(131, 243, 239);
+
+  } */
+  body ,html{
+    background-color: rgb(131, 243, 239);
+    background-position: 50%;
+    background-size: 80%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  /*-------Footer---------*/
+  .footer {
+    position:relative;
+    width: 100%;
+    bottom: 10px;
+    color: black;
+    padding: 20px; /* Some padding */
+    text-align: center; /* Center text*/
+    background: #ddd; /* Grey background */
+  }
