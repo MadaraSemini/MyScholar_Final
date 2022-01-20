@@ -278,7 +278,7 @@
     <div class="container">
 
         <div class="classList">
-        <h1 class="enrolledClasses">Your enrolled classes</h1>
+        <h1 class="enrolledClasses">My classes</h1>
             <div class="list">
                 <?php foreach ($enrolled_classes as $enrolled_class) : ?>
                     <?php foreach ($posts3 as $class) : ?>

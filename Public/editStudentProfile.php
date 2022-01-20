@@ -205,7 +205,7 @@
     <link rel="stylesheet" href="css/studentForm.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/logout.css">
-    <link rel="stylesheet" href="cs/theme.css">
+    <link rel="stylesheet" href="css/theme.css">
     <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <title>Edit Profile</title>
     
