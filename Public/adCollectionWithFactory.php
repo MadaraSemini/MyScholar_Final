@@ -202,7 +202,7 @@ $conn = $connector->getConnection();
             $heading = $currAd->getHeading();
             $description = $currAd->getDescription();
             $background = $currAd->getBackground();
-            $background = "AdBackgrounds/".$background;
+            $background = "../Private/Backgrouns/AdBackgrounds/".$background;
 
             $ownerDetails = "SELECT * FROM teacher WHERE Id = $ownerId";
             $result = mysqli_query($conn, $ownerDetails);
@@ -224,7 +224,7 @@ $conn = $connector->getConnection();
             $fname = $ownerDetailsResult['first_name'];
             $lname = $ownerDetailsResult['last_name'];
             //$image = "ProfilePics/";
-            $image = "uploads/";
+            $image = "../Private/uploads/";
 
             if (!empty($ownerDetailsResult['profile_photo'])) {
                 $image .= $ownerDetailsResult['profile_photo'];
