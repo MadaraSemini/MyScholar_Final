@@ -1,11 +1,13 @@
 <?php
-include_once("classes/User.php");
-include_once("classes/student.php");
-include_once("classes/Teacher.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/config/ConnectSingleton.php");
 session_start();
-$connector = new Connector();
-$con = $connector->connectDatabase();
+// $connector = new Connector();
+// $con = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$con = $connector->getConnection();
 
 $logged = false;
 if (isset($_SESSION['obj'])) {
@@ -28,11 +30,11 @@ if (isset($_SESSION['obj'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     
-    <link rel="stylesheet" href="contactUs.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/contactUs.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <title>ContactUs</title>
 </head>
 <body>
@@ -69,7 +71,7 @@ if (isset($_SESSION['obj'])) {
     <div class="block1">
         <div class="card">
             <div class="imgcontainer">
-                <img src="Images/madara.jpg">
+                <img src="../Private/Images/madara.jpg">
             </div>
             <div class="container">
               <h4><b>Madara Semini</b></h4>
@@ -82,7 +84,7 @@ if (isset($_SESSION['obj'])) {
     
     
           <div class="card">
-            <img src="Images/saku.jpg">
+            <img src="../Private/Images/saku.jpg">
             <div class="container">
               <h4><b>Sakuni Bandara</b></h4>
               <p>Computer Science Engineering(UG)</p>
@@ -97,7 +99,7 @@ if (isset($_SESSION['obj'])) {
 
     <div class="block2">
         <div class="card">
-            <img src="Images/jimmi.jpg" >
+            <img src="../Private/Images/jimmi.jpg" >
             <div class="container">
               <h4><b>Jithmi Ranasighe</b></h4>
               <p>Computer Science Engineering(UG)</p>
@@ -109,7 +111,7 @@ if (isset($_SESSION['obj'])) {
     
     
           <div class="card">
-            <img src="Images/satha.jpg" >
+            <img src="../Private/Images/satha.jpg" >
             <div class="container">
               <h4><b>Sathsarani Kapukotuwa</b></h4>
               <p>Computer Science Engineering(UG)</p>
