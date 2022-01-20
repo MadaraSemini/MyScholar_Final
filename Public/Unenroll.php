@@ -127,7 +127,7 @@ if(isset($_GET["nocls"]) && isset($_GET["nostd"])){
       }
 
       .bg-img{
-        background-image: url("Images/unenroll2.jpg");
+        background-image: url("../Private/Images/unenroll2.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
