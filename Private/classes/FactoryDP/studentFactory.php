@@ -3,12 +3,14 @@
      include_once("Product.php");
      include_once("Factory.php");
      include_once("Product.php");
-    //  include_once("../../config/ConnectSingleton.php");
+     //include_once("../../classes/connector.php");
 
 
     class StudentFactory extends Factory{
         public function factoryMethod($username,$encrypted_password): Product
         {
+          // $connector=new Connector();
+          // $connec=$connector->connectDatabase();
           $connector = ConnectSingleton::getInstance();
           $connec = $connector->getConnection();
           
