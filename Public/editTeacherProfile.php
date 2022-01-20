@@ -76,8 +76,8 @@
             
 
 
-            $connector=new Connector();
-            $connec=$connector->connectDatabase();
+            $connector = ConnectSingleton::getInstance();
+            $connec = $connector->getConnection();
 
 
 
