@@ -31,6 +31,7 @@ if (isset($_SESSION['obj'])) {
     <link rel="stylesheet" href="contactUs.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="logout.css">
+    <link rel="stylesheet" href="theme.css">
     <link rel="icon" type="image/x-icon" href="Images/icon.png">
     <title>ContactUs</title>
 </head>

@@ -4,9 +4,13 @@
 
   } */
   body ,html{
-    background-color: rgb(131, 243, 239);
+    background-color: white;
     background-position: 50%;
-    background-size: 80%;
+    background-size: 100%;
+    background-image: url("Images/background2.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;

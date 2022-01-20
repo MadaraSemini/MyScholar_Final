@@ -220,7 +220,7 @@ $_SESSION['student'] = $student;
                 <div class="card">
                     <h5 class="card-title">View Advertisements</h2>
                     <img src="Images/ads-campaign.png" alt="">
-                    <button class="card-desc" onclick="location.href='adCollection.php'" type="button"> Advertisements </button>
+                    <button class="card-desc" onclick="location.href='adCollectionWithFactory.php'" type="button"> Advertisements </button>
                 </div>
             </div>
             <!-- <div class="dashboardcard">

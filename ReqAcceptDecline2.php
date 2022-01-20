@@ -147,6 +147,7 @@ if (isset($_GET['accept'])) {
   <link rel="stylesheet" href="logout.css">
   <link rel="stylesheet" href="ReqAcceptDecline.css">
   <link rel="icon" type="image/x-icon" href="Images/icon.png">
+  <link rel="stylesheet" href="theme.css">
 
   
   <title> Class Requests </title>

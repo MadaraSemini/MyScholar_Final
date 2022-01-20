@@ -1,5 +1,7 @@
 <?php
-    abstract class User{
+
+    include_once("FactoryDP/Product.php");
+    abstract class User implements Product{
         private $id;
         private $firstName;
         private $lastName;

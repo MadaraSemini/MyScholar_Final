@@ -1,6 +1,8 @@
 <?php
 
-class Request{
+include_once("FactoryDP/Product.php");
+
+class Request implements Product{
     private State $state;
     private $id;
     private $classId;

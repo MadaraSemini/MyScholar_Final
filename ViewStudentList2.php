@@ -129,8 +129,8 @@ if(isset($_GET['remove'])){
                 </div>
             </div>
         <a style="float:right" id=id2 href="contactUs.php">Contact us</a>
-    </div>
-
+    </div> 
+    <h2> Student List </h2>
     <div class="table-wrapper">
     <?php
       $sql1 = "SELECT * FROM student_class WHERE class_id='$class_id'";
@@ -166,8 +166,8 @@ if(isset($_GET['remove'])){
         <tbody>
     </table>
 </div>
-<br> <br>
-<a href="ClassPageForTeacher.php?id=<?php echo $class_id?>" class="acceptbtn"> Back to class </a>
+
+<a style = "position:relative; left:80px;" href="ClassPageForTeacher.php?id=<?php echo $class_id?>" class="acceptbtn"> Back to class </a>
     
 </body>
 </html>

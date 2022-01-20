@@ -3,6 +3,10 @@ include_once("classes/User.php");
 include_once("classes/Teacher.php");  
 include_once("classes/uploader.php");
 include_once("classes/connector.php");
+include_once("classes/FactoryDP/teacherFactory.php");
+include_once("classes/FactoryDP/Factory.php");
+
+
     session_start();
    
     
@@ -12,41 +16,41 @@ include_once("classes/connector.php");
       $password=$_POST['psw'];
       $encrypted_password=md5($password);
 
-      $connector=new Connector();
-  $connec=$connector->connectDatabase();
+  //     $connector=new Connector();
+  // $connec=$connector->connectDatabase();
 
-      $query="select * from teacher WHERE Username='$username' AND Passkey='$encrypted_password'";
-      $query_run=mysqli_query($connec,$query);
-      $row = $query_run->fetch_array();
-  if(is_array($row)){
+  //     $query="select * from teacher WHERE Username='$username' AND Passkey='$encrypted_password'";
+  //     $query_run=mysqli_query($connec,$query);
+  //     $row = $query_run->fetch_array();
+  // if(is_array($row)){
 
-        //valid
-        $id=$row['Id'];
-        $firstName=$row['first_name'];
-        $lastName=$row['last_name'];
-        $email=$row['email'];
-        $district=$row['District'];
-        $designation=$row['designation'];
-        $description=$row['description'];
-        $contact=$row['contact_number'];
-        $profilePhoto="uploads/".$row['profile_photo'];
+  //       //valid
+  //       $id=$row['Id'];
+  //       $firstName=$row['first_name'];
+  //       $lastName=$row['last_name'];
+  //       $email=$row['email'];
+  //       $district=$row['District'];
+  //       $designation=$row['designation'];
+  //       $description=$row['description'];
+  //       $contact=$row['contact_number'];
+  //       $profilePhoto="uploads/".$row['profile_photo'];
     
     
-        $teacher=Teacher::getInstance($id,$firstName,$lastName,$username,$encrypted_password,$email,$district,$designation,$description,$contact);
-        //$student=new Student($id,$firstName,$lastName,$username,$encrypted_password,$email,$district);
-        $teacher->setProfPhoto($profilePhoto);
-        $teacher->setId($id);
-        
+  //       $teacher=Teacher::getInstance($id,$firstName,$lastName,$username,$encrypted_password,$email,$district,$designation,$description,$contact);
+  //       //$student=new Student($id,$firstName,$lastName,$username,$encrypted_password,$email,$district);
+  //       $teacher->setProfPhoto($profilePhoto);
+  //       $teacher->setId($id);
+        $teacherFactory= new TeacherFactory($username,$encrypted_password);
+        $teacher=$teacherFactory->anOperation($username,$encrypted_password);
     
         $_SESSION['obj']=$teacher;
         $_SESSION['userValue'] = 1;
        header('location:teacherDashboard.php');
 
       }
-      else{
-        echo "<script> alert('Invalide credentials');</script>";
-      }
-    }
+      
+      
+    
 ?>
 
 <!DOCTYPE html>

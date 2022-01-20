@@ -3,18 +3,15 @@ include_once("classes/User.php");
 include_once("classes/Teacher.php");
 include_once("classes/student.php");
 include_once("classes/connector.php");
-// include_once("classes/ClassPage/ProxyClass.php");
-// include_once("classes/ClassPage/RealClass.php");
-include_once("classes/ClassPage/Class.php");
 //------------------------------
 include_once("classes/rating.php");
 //------------------------------
+include_once("classes/FactoryDP/ratingFactory.php");
+include_once("classes/FactoryDP/Factory.php");
+include_once("classes/FactoryDP/ClassFactory.php");
+
 
 session_start(); 
-
-
-$connector = new Connector();
-$connec = $connector->connectDatabase();
 
 $logged = false;
 if (isset($_SESSION['obj'])) {
@@ -80,45 +77,51 @@ $student_id=$student->getId();
 
     <?php 
         
-        
+        $connector = new Connector();
+        $connec = $connector->connectDatabase();
 
-        $query1 = "SELECT * FROM class WHERE Id='$id'";
-        $query_run1 = mysqli_query($connec, $query1);
+        $ClassFactory = new ClassFactory();
+        $class = $ClassFactory->anOperation2($id);
 
-        while($row = mysqli_fetch_array($query_run1)){
-            if($row["grade"] == 'None'){
-                $coursename = $row["subject"];
-            } else {
-                $coursename = $row["subject"]." - Grade ".$row["grade"];
-            }
+        $grade = $class->getGrade();
+        $medium = $class->getMedium();
+        $subject = $class->getSubject();
+        $location = $class->getLocation();
+        $day = $class->getDay();
+        $starttime = $class->getStarttime();
+        $endtime = $class->getEndtime();
+        $classtype = $class->getClasstype();
+        $fee = $class->getFee();
+        $teacher_id = $class->getTeacherId();
 
-            $subject = $row["subject"];
-
-            if($row["grade"] == 'None'){
-                $grade = $row["grade"];
-            } else {
-                $grade = "Grade ".$row["grade"];
-            }
-            
-            if($row["medium"] == 'None'){
-                $medium = $row["medium"];
-            } else {
-                $medium = $row["medium"]." Medium";
-            }
-
-            if(strlen($row["location"])== 0){
-                $location = " -";
-            } else {
-                $location = $row["location"];
-            }
-            
-            $day = $row["day"];
-            $starttime = $row["starttime"];
-            $endtime = $row["endtime"];
-            $classtype = $row["classtype"]." Class";
-            $fee = "Rs ".$row["fee"];
-            $teacher_id = $row['teacher_id'];
+        if($grade == 'None'){
+            $coursename = $subject;
+        } else {
+            $coursename = $subject." - Grade ".$grade;
         }
+
+        $subject = $subject;
+
+        if($grade == 'None'){
+            //
+        } else {
+            $grade = "Grade ".$grade;
+        }
+            
+        if($medium == 'None'){
+            //
+        } else {
+            $medium = $medium." Medium";
+        }
+
+        if(strlen($location)== 0){
+            $location = " -";
+        } else {
+            //
+        }
+            
+        $classtype = $classtype." Class";
+        $fee = "Rs ".$fee;
 
         $query2 = "SELECT * FROM teacher WHERE Id='$teacher_id'";
         $query_run2 = mysqli_query($connec, $query2);
@@ -128,26 +131,8 @@ $student_id=$student->getId();
             $contact_number = $row['contact_number'];
         }
 
-        $sql = "SELECT * FROM anouncement WHERE class_id='$id'";
-        $result = mysqli_query($connec, $sql);
-        $anouncements = array();
-
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_assoc($result)){
-                $anouncements[] = $row;
-            }
-        }
-
-        $sql2 = "SELECT * FROM coursenote WHERE class_id='$id'";
-        $result2 = mysqli_query($connec, $sql2);
-        $coursenotes = array();
-
-        if(mysqli_num_rows($result2) > 0){
-            while($row = mysqli_fetch_assoc($result2)){
-                $coursenotes[] = $row;
-            }
-        }
-
+        $anouncements = $class->getAnouncements();
+        $coursenotes = $class->getCoursenotes();
 
         //--------------------------
         
@@ -157,9 +142,11 @@ $student_id=$student->getId();
 
                 
             $value= $_POST['buttons'];
+
+            $ratingFactory=new Ratingfactory();
         
-            $rating=new Rating($teacher_id);
-            $rating->setRating($value);
+            $rating=$ratingFactory->anOperation3($teacher_id,$value);
+            
             $sql4="INSERT INTO star_rating(teacher_id,rating,student_id) VALUES('$teacher_id','$value','$student_id');";
 
                 if(mysqli_query($connec,$sql4)){

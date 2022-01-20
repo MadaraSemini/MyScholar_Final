@@ -1,6 +1,6 @@
 <?php
-
-    class Rating{
+    include_once("FactoryDP/Product.php");
+    class Rating implements Product{
         
         private $teacherID;
         private $ratingValue;

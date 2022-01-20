@@ -16,6 +16,7 @@
 
         $logged = true;
         $student = $_SESSION['obj'];
+        $name=$student->getUsername();
     } else {
         $logged = false;
     }
@@ -36,8 +37,45 @@
 <html>
     <head>  
         <link rel="stylesheet" href="adToClzProxy.css">
+        <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="logout.css">
+    <title>Request</title>
     </head>
     <body>
+         <!-- navigation bar -->
+    <div class="topnav">
+        <a id=id1 href="index.php">Home</a>
+        <div id="idlg" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id3 style="float: right;" onclick="document.getElementById('id01').style.display='block'">Log out</a></div>
+        <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id1 <?php if ($student instanceof Student) { ?>href="dashboard.php" <?php } else { ?>href="teacherDashboard.php" <?php } ?>>Dashboard</a></div>
+
+
+
+
+        <div id="id01" class="logout">
+            <div class="logout_msg animate">
+                <div class="top">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+                <h1>Log Out</h1>
+                <p><?php echo $name ?> are you sure you want to log out?</p>
+                <!-- <p>Are you sure you want to Log out?</p> -->
+                <!-- <input type="button" class="yes" name="logout"  value="Yes"> -->
+                <form action="dashboard.php" method="post">
+                    <button id="log" type="submit" class="yes" name="logout">Yes</button>
+                    <button id="log" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">No</button>
+                </form>
+
+
+            </div>
+        </div>
+
+        <a style="float:right" id=id2 href="contactUs.php">Contact us</a>
+
+
+    </div>
+
         <form action="" method="POST" onsubmit="return request();">
             <div class = "card">
                 <h1><?php echo $classDetails['subject']?></h1>

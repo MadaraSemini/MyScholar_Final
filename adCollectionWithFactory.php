@@ -4,6 +4,10 @@ include_once("classes/User.php");
 include_once("classes/Teacher.php");
 include_once("classes/Ad.php");
 include_once("classes/student.php");
+include_once("classes/FactoryDP/Factory.php");
+include_once("classes/FactoryDP/AdFactory.php");
+include_once("classes/FactoryDP/AdTemp.php");
+include_once("classes/FactoryDP/Product.php");
 session_start();
 
 //create connection
@@ -57,12 +61,19 @@ $conn = $connector->connectDatabase();
     $isSearch = false;
     $adIdArray = array();
     if ($UserValue == 0) {
-        $allAdsQry = "SELECT * FROM advertisement";
+        $allAdsQry = "SELECT Id FROM advertisement";
     } else {
         $userId = $User->getId();
-        $allAdsQry = "SELECT * FROM advertisement WHERE teacher_id = $userId";
+        $allAdsQry = "SELECT Id FROM advertisement WHERE teacher_id = $userId";
     }
     $allAds = mysqli_query($conn, $allAdsQry);
+    $factory = new AdFactory();
+    $adObjects = array();
+    foreach($allAds as $facAdId){
+        $test = $facAdId['Id'];
+        $ad = $factory->anOperation2($test);
+        array_push($adObjects,$ad);
+    }
 
     if (isset($_POST['submit'])) {
         if (!empty($_POST['search'])) {
@@ -176,30 +187,32 @@ $conn = $connector->connectDatabase();
     </div>
 
     <?php
-    if (mysqli_num_rows($allAds) > 0) {
+    if (sizeof($adObjects) > 0) {
         if ($isSearch && sizeof($adIdArray) == 0) {
     ?><p>No Matching Advertisements...</p><?php
     } else {
-        foreach ($allAds as $currAd) {
-            $currId = $currAd['Id'];
+        foreach ($adObjects as $currAd) {
+            $currId = $currAd->getId();
             if ($isSearch == true) {
                 if (in_array($currId, $adIdArray) == false) {
                     continue;
                 }
             }
-            $ownerId = $currAd['teacher_id'];
-            $heading = $currAd['heading'];
-            $description = $currAd['description'];
-            $background = "AdBackgrounds/".$currAd['background'];
+            $ownerId = $currAd->getTeacherId();
+            $heading = $currAd->getHeading();
+            $description = $currAd->getDescription();
+            $background = $currAd->getBackground();
+            $background = "AdBackgrounds/".$background;
 
             $ownerDetails = "SELECT * FROM teacher WHERE Id = $ownerId";
             $result = mysqli_query($conn, $ownerDetails);
             $ownerDetailsResult = mysqli_fetch_array($result);
 
-            $adCls_qry = "SELECT * FROM advertisement_class WHERE ad_id = $currId";
-            $adCls_result = mysqli_query($conn, $adCls_qry);
+            //$adCls_qry = "SELECT * FROM advertisement_class WHERE ad_id = $currId";
+            //$adCls_result = mysqli_query($conn, $adCls_qry);
+            $adCls_result=$currAd->getClassArray();
             $emptyWarning = false;
-            if(mysqli_num_rows($adCls_result)<=0){
+            if(sizeof($adCls_result)<=0){
                 if ($UserValue == 0) {
                     continue;
                 } else {
@@ -232,10 +245,10 @@ $conn = $connector->connectDatabase();
                         <p class="title"><?php echo $description; ?></p>
                         <ul>
                             <?php
-                            if (mysqli_num_rows($adCls_result) > 0) {
+                            if (sizeof($adCls_result) > 0) {
                                 foreach ($adCls_result as $clsId) {
-                                    $req_id = $clsId['class_id'];
-                                    $cls_qry = "SELECT * FROM class WHERE id = $req_id";
+                                    //$req_id = $clsId['class_id'];
+                                    $cls_qry = "SELECT * FROM class WHERE id = $clsId";
                                     $cls_result = mysqli_query($conn, $cls_qry);
                                     $cls = mysqli_fetch_array($cls_result);
                             ?>

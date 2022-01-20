@@ -3,9 +3,8 @@
 include_once("classes/User.php");
 include_once("classes/Teacher.php");
 include_once("classes/connector.php");
-//include_once("classes/ClassPage/ProxyClass.php");
-//include_once("classes/ClassPage/RealClass.php");
-include_once("classes/ClassPage/Class.php");
+include_once("classes/FactoryDP/Class.php");
+include_once("classes/FactoryDP/ClassFactory.php");
 
 session_start();
 $logged = false;
@@ -70,6 +69,8 @@ $name = $user->getUsername();
         $connec = $connector->connectDatabase();
 
         $id = $_GET['id'];
+        $ClassFactory = new ClassFactory();
+        $class = $ClassFactory->anOperation2($id);
 
         //$id = $_SESSION['class_id'];
         $teacher = $_SESSION['obj'];
@@ -78,44 +79,46 @@ $name = $user->getUsername();
 
         //$id = $class->getId();
 
+        $grade = $class->getGrade();
+        $medium = $class->getMedium();
+        $subject = $class->getSubject();
+        $location = $class->getLocation();
+        $day = $class->getDay();
+        $starttime = $class->getStarttime();
+        $endtime = $class->getEndtime();
+        $classtype = $class->getClasstype();
+        $fee = $class->getFee();
+        //$teacher_id = $class->getTeacherId();
 
-        $query1 = "SELECT * FROM class WHERE Id='$id'";
-        $query_run1 = mysqli_query($connec, $query1);
-
-        while($row = mysqli_fetch_array($query_run1)){
-            if($row["grade"] == 'None'){
-                $coursename = $row["subject"];
-            } else {
-                $coursename = $row["subject"]." - Grade ".$row["grade"];
-            }
-
-            $subject = $row["subject"];
-
-            if($row["grade"] == 'None'){
-                $grade = $row["grade"];
-            } else {
-                $grade = "Grade ".$row["grade"];
-            }
-            
-            if($row["medium"] == 'None'){
-                $medium = $row["medium"];
-            } else {
-                $medium = $row["medium"]." Medium";
-            }
-
-            if(strlen($row["location"])== 0){
-                $location = " -";
-            } else {
-                $location = $row["location"];
-            }
-            
-            $day = $row["day"];
-            $starttime = $row["starttime"];
-            $endtime = $row["endtime"];
-            $classtype = $row["classtype"]." Class";
-            $fee = "Rs ".$row["fee"];
-            $teacher_id = $row['teacher_id'];
+        if($grade == 'None'){
+            $coursename = $subject;
+        } else {
+            $coursename = $subject." - Grade ".$grade;
         }
+
+        $subject = $subject;
+
+        if($grade == 'None'){
+            //
+        } else {
+            $grade = "Grade ".$grade;
+        }
+            
+        if($medium == 'None'){
+            //
+        } else {
+            $medium = $medium." Medium";
+        }
+
+        if(strlen($location)== 0){
+            $location = " -";
+        } else {
+            //
+        }
+            
+        $classtype = $classtype." Class";
+        $fee = "Rs ".$fee;
+        
 
         $query2 = "SELECT * FROM teacher WHERE Id='$t_id'";
         $query_run2 = mysqli_query($connec, $query2);
@@ -126,6 +129,10 @@ $name = $user->getUsername();
         }
 
 
+        $anouncements = $class->getAnouncements();
+        $coursenotes = $class->getCoursenotes();
+        
+        /*
         $sql = "SELECT * FROM anouncement WHERE class_id='$id'";
         $result = mysqli_query($connec, $sql);
         $anouncements = array();
@@ -146,6 +153,7 @@ $name = $user->getUsername();
                 $coursenotes[] = $row;
             }
         }
+        */
 
         mysqli_close($connec);
 

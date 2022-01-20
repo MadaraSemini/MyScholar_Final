@@ -165,7 +165,7 @@
                     $file_uploader->uploadImage();
 
                     if(mysqli_query($connec,$sql1)){
-                        echo("successfull");
+                        //echo("successfull");
                         //header("Location: studentProfile.php");
                     }else{
                         echo("error".mysqli_error($connec));
@@ -177,7 +177,7 @@
                 
     
                 if(mysqli_query($connec,$sql)){
-                    echo("successfull");
+                    //echo("successfull");
                     //header("Location: studentProfile.php");
                 }else{
                     echo("error".mysqli_error($connec));

@@ -3,9 +3,6 @@
 include_once("classes/User.php");
 include_once("classes/Teacher.php");
 include_once("classes/connector.php");
-//include_once("classes/ClassPage/ProxyClass.php");
-//include_once("classes/ClassPage/RealClass.php");
-include_once("classes/ClassPage/Class.php");
 
 session_start();
 ob_start();

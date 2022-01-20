@@ -85,7 +85,7 @@
                 $sql="UPDATE teacher SET designation='$designation', first_name = '$firstName', last_name = '$lastName', Username='$username', passkey='$encrypted_password', email='$email', District='$district',contact_number='$contact_number', description='$description' WHERE Id='$id'";
 
                 if(mysqli_query($connec,$sql)){
-                    echo("successfull");
+                    //echo("successfull");
                     header("Location: teacherProfile.php");
                 }else{
                     echo("error".mysqli_error($connec));
@@ -103,7 +103,7 @@
                 $file_uploader->uploadImage();
 
                 if(mysqli_query($connec,$sql1)){
-                    echo("successfull");
+                    //echo("successfull");
                     header("Location: teacherProfile.php");
                 }else{
                     echo("error".mysqli_error($connec));

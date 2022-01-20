@@ -82,9 +82,12 @@
             }
         }
     endforeach;
-
+    if(count($teacherRatings)!=0){
     $overallRating=($rating1*1+$rating2*2+$rating3*3+$rating4*4+$rating5*5)/count($teacherRatings);
     $teacher->setOverallRating($overallRating);
+    }else{
+        $teacher->setOverallRating(0);
+    }
 
 
 

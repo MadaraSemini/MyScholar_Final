@@ -83,6 +83,7 @@ if (isset($_GET['remove'])) {
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="logout.css">
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="ReqAcceptDecline.css">
 <link rel="icon" type="image/x-icon" href="Images/icon.png">
 <meta name="theme-color" content="#7952b3">
 
@@ -137,26 +138,22 @@ if (isset($_GET['remove'])) {
         </div>
 
 
-<main>
-
-      <div class="container">
-
-      <?php
+    <div class="table-wrapper">
+    <?php
       $sql1 = "SELECT * FROM request WHERE student_id='$student_id' AND state='Requested'";
       $result1 = mysqli_query($con, $sql1);
-      ?>
-      <br> <br> <br>
-      <div class="row justify-content-center">
-        <table class="table">
-          <thead>
-            <tr>
-              <th> Course Name </th>
-              <th> Teacher Name </th>
-              <th> Action </th>
-            </tr>
-          </thead>
-
-          <?php
+    ?>
+    <br> <br> <br>
+    <table class="fl-table">
+        <thead>
+        <tr>
+          <th> Course Name </th>
+          <th> Teacher Name </th>
+          <th> Action </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
           while($row = $result1->fetch_assoc()): 
             // $req_id = $row['id'];
             $teacher_id = $row['teacher_id'];
@@ -181,23 +178,18 @@ if (isset($_GET['remove'])) {
 
           
           ?>
-            <tr>
-              <td> <?php echo $coursename ?> </td>
-              <td> <?php echo $fullname ?> </td>
-              <td>
-                <a href="StudentRequests.php?remove=<?php echo $row['id']?>" class="btn btn-danger"> Remove </a>
-              </td>
-            </tr>
-          <?php endwhile; ?>
+        <tr>
+            <td> <?php echo $coursename ?> </td>
+            <td> <?php echo $fullname ?> </td>
+            <td>
+            <a href="StudentRequests.php?remove=<?php echo $row['id']?>" class="declinebtn"> Remove </a>
+            </td>  
+        </tr>
+        <?php endwhile; ?>
+        <tbody>
+    </table>
+</div>
 
-        </table>
-      </div>
-      </div>
-  
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
       
-  </body>
+</body>
 </html>

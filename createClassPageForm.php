@@ -1,9 +1,5 @@
 <?php
     
-
-    //include_once("classes/ClassPage/ProxyClass.php");
-    //include_once("classes/ClassPage/RealClass.php");
-    include_once("classes/ClassPage/Class.php");
     include_once("classes/connector.php");
     include_once("classes/User.php");
     include_once("classes/Teacher.php");
@@ -104,6 +100,7 @@
     <title> Create a class </title>
     <link rel="stylesheet" type="text/css" href="createClassPageForm.css">
     <link rel="stylesheet" href="theme.css">
+
 </head>
 
 

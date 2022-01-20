@@ -22,6 +22,7 @@
     margin-left: 50px;
     margin-top: 15px;
     margin-bottom: 15px;
+    width: 300px;
     
   }
 
@@ -48,7 +49,7 @@
 
 
 .description{
-    background-color: rgb(48, 107, 109);
+    background-color: rgb(65, 137, 139);
     
     
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -74,7 +75,7 @@ p.mySelf{
 }
 
 .ratings{
-    background-color:rgb(245, 241, 241);
+    background-color:rgb(117, 195, 243);
     
     
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -83,6 +84,10 @@ p.mySelf{
     border-radius: 20px;
     border-color: black;
     
+}
+
+.ratings:hover{
+  background-color:rgb(91, 184, 241) ;
 }
 
 .checked {
@@ -123,7 +128,7 @@ h1.Des{
   margin: auto;
   border-style: solid;
   height: auto;
-  background-color: cadetblue;
+  background-color: rgb(127, 209, 176);
   border-radius: 20px;
 }
 

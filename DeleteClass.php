@@ -3,11 +3,19 @@
 include_once("classes/User.php");
 include_once("classes/Teacher.php");
 include_once("classes/connector.php");
-//include_once("classes/ClassPage/ProxyClass.php");
-//include_once("classes/ClassPage/RealClass.php");
-include_once("classes/ClassPage/Class.php");
+
 
 session_start();
+
+$logged = false;
+
+if (isset($_SESSION['obj'])) {
+  $logged = true;
+  $user = $_SESSION['obj'];
+  $name = $user->getUsername();
+} else {
+  $logged = false;
+}
 
 $teacher = $_SESSION['teacher'];
 $class_id = $_GET['id'];
@@ -70,6 +78,10 @@ if(isset($_GET["no"])){
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="logout.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="icon" type="image/x-icon" href="Images/icon.png">
     <title> Delete Class </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
@@ -103,26 +115,72 @@ if(isset($_GET["no"])){
           font-size: 3.5rem;
         }
       }
+
+      .bg-img{
+        background-image: url("Images/unenroll2.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 603px;
+        }
+
+        main{
+            background-color: #95BCCB;
+        }
+
     </style>
 
     
 </head>
 <body>
 
-<main>
+<!-- navigation bar -->
+<div class="topnav">
+        <a href="index.php">Home</a>
+        <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id1 <?php if($user instanceof Student){?>href="dashboard.php"<?php }else{?>href="teacherDashboard.php"<?php }?>>Dashboard</a></div>
+            <div id="id02" <?php if ($logged == false) { ?>style="display:none" <?php } ?>><a id=id3 style="float: right;" onclick="document.getElementById('id01').style.display='block'">Log out</a></div>
 
+
+
+
+            <div id="id01" class="logout">
+                <div class="logout_msg animate">
+                    <div class="top">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h1>Log Out</h1>
+                    <p><?php echo $name ?> are you sure you want to log out?</p>
+                    <!-- <p>Are you sure you want to Log out?</p> -->
+                    <!-- <input type="button" class="yes" name="logout"  value="Yes"> -->
+                    <form action="classCard.php" method="post">
+                        <button id="log" type="submit" class="yes" name="logout">Yes</button>
+                        <button id="log" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">No</button>
+                    </form>
+
+
+                </div>
+            </div>
+        <a style="float:right" id=id2 href="contactUs.php">Contact us</a>
+    </div>
+
+<main>
   <section class="py-5 text-center container">
+  <div class="bg-img">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light"> Delete class </h1>
-        <p class="lead text-muted"> Are you sure you want to delete this class page? </p>
+        <br> <br> <br> <br> <br> 
+        <h1 class="fw-light"> <b> Delete class </b> </h1>
+        <p class="lead text-muted"> <b> Are you sure you want to delete this class page? </b> </p>
         <p>
           <a href="DeleteClass.php?yes=<?php echo $class_id?>" class="btn btn-primary my-2"> Yes </a>
           <a href="DeleteClass.php?no=<?php echo $class_id?>" class="btn btn-secondary my-2"> No </a>
         </p>
       </div>
     </div>
+    </div>
   </section>
+
 
 </main>
 
