@@ -1,13 +1,13 @@
 <?php
 
-include_once("classes/connector.php");
-include_once("classes/Request.php");
-include_once("classes/State/State.php");
-include_once("classes/State/Requested.php");
-include_once("classes/State/Accepted.php");
-include_once("classes/State/Closed.php");
-include_once("classes/User.php");
-include_once("classes/student.php");
+include_once("../Private/classes/connector.php");
+include_once("../Private/classes/Request.php");
+include_once("../Private/classes/State/State.php");
+include_once("../Private/classes/State/Requested.php");
+include_once("../Private/classes/State/Accepted.php");
+include_once("../Private/classes/State/Closed.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
 
 session_start();
 
@@ -80,11 +80,11 @@ if (isset($_GET['remove'])) {
 <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-<link rel="stylesheet" href="navbar.css">
-<link rel="stylesheet" href="logout.css">
-<link rel="stylesheet" href="theme.css">
-<link rel="stylesheet" href="ReqAcceptDecline.css">
-<link rel="icon" type="image/x-icon" href="Images/icon.png">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/logout.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/ReqAcceptDecline.css">
+<link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 <meta name="theme-color" content="#7952b3">
 
 

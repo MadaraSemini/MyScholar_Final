@@ -1,8 +1,8 @@
 <?php 
 
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/classes/connector.php");
 
 session_start();
 ob_start();
@@ -106,13 +106,13 @@ ob_end_flush();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
     <title> Update Class </title>
-    <link rel="stylesheet" type="text/css" href="createClassPageForm.css">
-    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" type="text/css" href="css/createClassPageForm.css">
+    <link rel="stylesheet" href="css/theme.css">
 </head>
 
 
