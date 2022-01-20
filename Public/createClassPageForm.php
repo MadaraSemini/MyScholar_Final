@@ -1,6 +1,6 @@
 <?php
     
-    include_once("../Private/classes/connector.php");
+    include_once("../Private/config/connector.php");
     include_once("../Private/classes/User.php");
     include_once("../Private/classes/Teacher.php");
     session_start();

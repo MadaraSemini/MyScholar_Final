@@ -1,6 +1,6 @@
 <?php
 
-include_once("../Private/classes/connector.php");
+include_once("../Private/config/connector.php");
 include_once("../Private/classes/Request.php");
 include_once("../Private/classes/State/State.php");
 include_once("../Private/classes/State/Requested.php");
