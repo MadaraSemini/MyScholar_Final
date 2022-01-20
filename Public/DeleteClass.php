@@ -25,8 +25,9 @@ $teacher_id = $teacher->getId();
 if(isset($_GET["yes"])){
 
     $cls_id = $_GET['yes'];
-    $connector = new Connector();
-    $con = $connector->connectDatabase();
+    
+    $connector = ConnectSingleton::getInstance();
+    $con = $connector->getConnection(); 
 
     $sql2 = "DELETE FROM student_class WHERE class_id='$cls_id'";
     $result2 = mysqli_query($con, $sql2);

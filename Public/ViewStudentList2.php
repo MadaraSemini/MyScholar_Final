@@ -26,8 +26,8 @@ $class_id = $_GET['id'];
 
 $teacher_id = $teacher->getId();
 
-$connector = new Connector();
-$con = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$con = $connector->getConnection();
 
 
 

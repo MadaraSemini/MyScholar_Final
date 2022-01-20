@@ -21,8 +21,8 @@ if (isset($_SESSION['obj'])) {
   $logged = false;
 }
 
-$connector = new Connector();
-$con = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$con = $connector->getConnection();
 
 if (isset($_GET['decline'])) {
   $req_id = $_GET['decline'];

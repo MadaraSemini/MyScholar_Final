@@ -19,8 +19,8 @@ $teacher = $_SESSION['teacher'];
 
 $class_id = $_GET['id'];
 
-$connector = new Connector();
-$conn = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$conn = $connector->getConnection();
 
 
 if(isset($_POST["submit"])){
