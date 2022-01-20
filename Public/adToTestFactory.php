@@ -1,19 +1,19 @@
 <?php
-    include_once("classes/connector.php");
-    include_once("classes/User.php");
-    include_once("classes/Teacher.php");
-    include_once("classes/FactoryDP/Factory.php");
-    include_once("classes/FactoryDP/AdFactory.php");
-    include_once("classes/FactoryDP/AdTemp.php");
-    include_once("classes/FactoryDP/Product.php");
+    include_once("../Private/config/ConnectorSingleton.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/Teacher.php");
+    include_once("../Private/classes/FactoryDP/Factory.php");
+    include_once("../Private/classes/FactoryDP/AdFactory.php");
+    include_once("../Private/classes/FactoryDP/AdTemp.php");
+    include_once("../Private/classes/FactoryDP/Product.php");
     session_start();
 
     $teacher = $_SESSION['obj'];
     $tcrId = $teacher->getId();
     $ad_id = $_GET['adId'];
 
-    $connector = new Connector();
-    $conn = $connector->connectDatabase();
+    $connector = ConnectSingleton::getInstance();
+    $conn = $connector->getConnection();
 
    // $sql = "SELECT * FROM advertisement WHERE Id = $ad_id";
     //$sql = mysqli_query($conn,$sql);

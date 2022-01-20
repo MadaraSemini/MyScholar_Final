@@ -1,10 +1,10 @@
     <?php
-    include_once("classes/User.php");
-    include_once("classes/Teacher.php");
-    include_once("classes/uploader.php");
+    include_once("../Private/classes/User.php");
+    include_once("../Private/classes/Teacher.php");
+    include_once("../Private/classes/uploader.php");
     //include_once("classes/connector.php");
-    include_once("config/ConnectSingleton.php");
-    include_once("classes/Ad.php");
+    include_once("../Private/config/ConnectSingleton.php");
+    include_once("../Private/classes/Ad.php");
     session_start();
 
     $logged = false;
@@ -44,13 +44,13 @@
     <head>
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
         <title>Student request form</title>
-        <link rel="stylesheet" href="adForm.css">
-        <link rel="stylesheet" href="theme.css">
-        <link rel="stylesheet" href="navbar.css">
-        <link rel="stylesheet" href="logout.css">
-        <link rel="icon" type="image/x-icon" href="Images/icon.png">
+        <link rel="stylesheet" href="css/adForm.css">
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/logout.css">
+        <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
-        <script type="text/javascript" src="adForm.js"></script>
+        <script type="text/javascript" src="js/adForm.js"></script>
     </head>
 
     <body>

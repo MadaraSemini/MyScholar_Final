@@ -1,30 +1,30 @@
 <?php
-include_once("classes/connector.php");
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
-include_once("classes/Ad.php");
-include_once("classes/student.php");
-include_once("classes/FactoryDP/Factory.php");
-include_once("classes/FactoryDP/AdFactory.php");
-include_once("classes/FactoryDP/AdTemp.php");
-include_once("classes/FactoryDP/Product.php");
+include_once("../Private/config/ConnectSingleton.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/classes/Ad.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/FactoryDP/Factory.php");
+include_once("../Private/classes/FactoryDP/AdFactory.php");
+include_once("../Private/classes/FactoryDP/AdTemp.php");
+include_once("../Private/classes/FactoryDP/Product.php");
 session_start();
 
 //create connection
-$connector = new Connector();
-$conn = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$conn = $connector->getConnection();
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="advertisement.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/advertisement.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="logout.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/logout.css">
 
     <title>Advertisements</title>
 </head>
