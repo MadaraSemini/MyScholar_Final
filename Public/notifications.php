@@ -47,7 +47,7 @@ elseif(isset($_GET['all'])){
     <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <link rel="stylesheet" href="css/logout.css">
     <link rel="stylesheet" href="css/studentDashboard.css">
-    <link rel="stylesheet" href="css/addCourseNoteForm.css">
+    <link rel="stylesheet" href="css/notification.css">
     <title>Notifications</title>
 </head>
 
