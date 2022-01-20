@@ -96,6 +96,7 @@ if(isset($_GET['remove'])){
     <meta name="generator" content="Hugo 0.88.1">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/ReqAcceptDecline.css">
     <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
     <title> Student List </title>
