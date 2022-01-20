@@ -2,7 +2,7 @@
 include_once("../Private/classes/User.php");
 include_once("../Private/classes/Teacher.php");  
 include_once("../Private/classes/uploader.php");
-include_once("../Private/classes/connector.php");
+include_once("../Private/config/ConnectSingleton.php");
 include_once("../Private/classes/FactoryDP/teacherFactory.php");
 include_once("../Private/classes/FactoryDP/Factory.php");
 

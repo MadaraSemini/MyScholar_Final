@@ -3,7 +3,7 @@
 include_once("../Private/classes/User.php");
 include_once("../Private/classes/student.php");
 include_once("../Private/classes/uploader.php");
-include_once("../Private/classes/connector.php");
+include_once("../Private/config/ConnectSingleton.php");
 include_once("../Private/classes/FactoryDP/studentFactory.php");
 include_once("../Private/classes/FactoryDP/Factory.php");
 
