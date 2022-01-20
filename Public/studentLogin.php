@@ -70,10 +70,10 @@ if (isset($_POST['loginbtn'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 
-  <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="navbar.css">
-  <link rel="stylesheet" href="studentLogin.css">
-  <link rel="icon" type="image/x-icon" href="Images/icon.png">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/studentLogin.css">
+  <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
   <title>StudentLogin</title>
 </head>
@@ -89,7 +89,7 @@ if (isset($_POST['loginbtn'])) {
   <div class="header">
     <form class="modal-content animate" action="studentLogin.php" method="post">
       <div class="imgcontainer">
-        <img src="Images/StudentLogin.png" alt="Avatar" class="avatar">
+        <img src="../Private/Images/StudentLogin.png" alt="Avatar" class="avatar">
       </div>
       <div class="container">
         <label for="uname"><b>Username</b></label>

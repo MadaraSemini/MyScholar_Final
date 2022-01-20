@@ -1,10 +1,10 @@
 <?php
-include_once("classes/User.php");
-include_once("classes/Teacher.php");  
-include_once("classes/uploader.php");
-include_once("classes/connector.php");
-include_once("classes/FactoryDP/teacherFactory.php");
-include_once("classes/FactoryDP/Factory.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");  
+include_once("../Private/classes/uploader.php");
+include_once("../Private/classes/connector.php");
+include_once("../Private/classes/FactoryDP/teacherFactory.php");
+include_once("../Private/classes/FactoryDP/Factory.php");
 
 
     session_start();
@@ -62,10 +62,10 @@ include_once("classes/FactoryDP/Factory.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="teacherLogin.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/teacherLogin.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
 
     <title>TeacherLogin</title>
 </head>
@@ -83,7 +83,7 @@ include_once("classes/FactoryDP/Factory.php");
       <form class="modal-content animate" action="teacherLogin.php" method="post">
           <div class="imgcontainer">
               <!-- <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-              <img src="Images/TeacherLogin.png" alt="Avatar" class="avatar">
+              <img src="../Private/Images/TeacherLogin.png" alt="Avatar" class="avatar">
           </div>
         
           <div class="container">

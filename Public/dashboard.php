@@ -1,13 +1,15 @@
 <?php
 
-include_once("classes/User.php");
-include_once("classes/student.php");
-include_once("classes/uploader.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/student.php");
+include_once("../Private/classes/uploader.php");
+include_once("../Private/config/ConnectSingleton.php");
 session_start();
 
-$connector = new Connector();
-$connec = $connector->connectDatabase();
+// $connector = new Connector();
+// $connec = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 $logged = false;
 if (isset($_SESSION['obj'])) {
 
@@ -106,11 +108,11 @@ $_SESSION['student'] = $student;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="stylesheet" href="studentDashboard.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/studentDashboard.css">
     <title>DashBoard</title>
 </head>
 
