@@ -73,7 +73,7 @@ if (isset($_SESSION['obj'])) {
                   
                 <button type="submit" onclick="">Login</button>
                 <label>
-                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                  <input type="checkbox" checked="checked" name="remember"> Remember me 
                 </label>
             </div>
           
