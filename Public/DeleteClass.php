@@ -2,7 +2,7 @@
 
 include_once("../Private/classes/User.php");
 include_once("../Private/classes/Teacher.php");
-include_once("../Private/classes/connector.php");
+include_once("../Private/config/connector.php");
 
 
 session_start();
