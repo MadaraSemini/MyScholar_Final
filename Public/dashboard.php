@@ -216,12 +216,12 @@ $_SESSION['student'] = $student;
 
                 <div class="card">
                     <h5 class="card-title">View profile</h2>
-                    <img src="Images/man.png" alt="">
+                    <img src="../Private/Images/man.png" alt="">
                     <button class="card-desc" onclick="location.href='studentProfile.php'"> Profile</button>
                 </div>
                 <div class="card">
                     <h5 class="card-title">View Advertisements</h2>
-                    <img src="Images/ads-campaign.png" alt="">
+                    <img src="../Private/Images/ads-campaign.png" alt="">
                     <button class="card-desc" onclick="location.href='adCollectionWithFactory.php'" type="button"> Advertisements </button>
                 </div>
             </div>

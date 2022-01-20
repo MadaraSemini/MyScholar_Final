@@ -1,13 +1,15 @@
 <?php
-include_once("classes/User.php");
-include_once("classes/Teacher.php");
-include_once("classes/uploader.php");
-include_once("classes/connector.php");
+include_once("../Private/classes/User.php");
+include_once("../Private/classes/Teacher.php");
+include_once("../Private/classes/uploader.php");
+include_once("../Private/config/ConnectSingleton.php");
 
 session_start();
 
-$connector = new Connector();
-$connec = $connector->connectDatabase();
+// $connector = new Connector();
+// $connec = $connector->connectDatabase();
+$connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 
 $logged = false;
 if (isset($_SESSION['obj'])) {
@@ -105,11 +107,11 @@ $_SESSION['obj']=$teacher;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="icon" type="image/x-icon" href="Images/icon.png">
-    <link rel="stylesheet" href="logout.css">
-    <link rel="stylesheet" href="studentDashboard.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="icon" type="image/x-icon" href="../Private/Images/icon.png">
+    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="css/studentDashboard.css">
     <title>DashBoard</title>
 </head>
 
@@ -184,26 +186,26 @@ $_SESSION['obj']=$teacher;
 
                 <div class="card">
                     <h5 class="card-title">View profile</h2>
-                    <img src="Images/woman.png" alt="" >
+                    <img src="../Private/Images/woman.png" alt="" >
                     <button class="card-desc" onclick="location.href='teacherProfile.php'" >Profile</button>
                 </div>
                 <div class="card">
                     <h5 class="card-title">New Advertisement</h2>
 
-                    <img src="Images/ads.png" alt="" >
+                    <img src="../Private/Images/ads.png" alt="" >
                     <button class="card-desc" onclick="location.href='adform.php'" type="button"> New Advertisement </button>
                 </div>
                 <?php $_SESSION['obj'] = $teacher; ?>
                 <div class="card">
                     <h5 class="card-title">New Class </h2>
 
-                    <img src="Images/blackboard.png" alt="">
+                    <img src="../Private/Images/blackboard.png" alt="">
                     <button class="card-desc" onclick="location.href='createClassPageForm.php'" type="button"> New Class </button>
                 </div>
                 <div class="card">
                     <h5 class="card-title"> View Advertisements</h2>
 
-                    <img src="Images/ads-campaign.png" alt="">
+                    <img src="../Private/Images/ads-campaign.png" alt="">
                     <button class="card-desc" onclick="location.href='adCollectionWithFactory.php'" type="button"> View My Advertisements </button>
                 </div>
             </div>
