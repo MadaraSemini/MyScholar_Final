@@ -230,7 +230,7 @@ $name = $user->getUsername();
 
                     <?php foreach($coursenotes as $coursenote){ 
                         $title = $coursenote['title'];
-                        $file = "CourseNotes/".$coursenote['file'];
+                        $file = "../Private/CourseNotes/".$coursenote['file'];
                     ?>
                         <li>
                             <a id="file" href="<?php echo $file; ?>" target="_blank"> <?php echo $title;?> </a>
