@@ -46,6 +46,9 @@ if(isset($_GET["yes"])){
 
     $sql = "DELETE FROM class WHERE Id='$cls_id'";
 
+    $sql7 = "UPDATE notification SET availability=1 WHERE class_id='$cls_id'";
+    $result7 = mysqli_query($con, $sql7);
+
     if($con->query($sql) === TRUE){
         $_SESSION['obj'] = $teacher;
         $url = "teacherDashboard.php";
