@@ -211,7 +211,7 @@ $name = $user->getUsername();
 
             <div>
                 <?php $_SESSION['teacher'] = $teacher; ?>
-                <h3> Anouncements </h3>
+                <h3> Announcements </h3>
                 <div class="anouncements">
 
                     <?php foreach($anouncements as $anouncement){ ?>
@@ -220,7 +220,7 @@ $name = $user->getUsername();
                         </li>
                     <?php } ?>
                     <br>
-                    <a class="editbtn" href="addAnouncementForm.php?id=<?php echo $id?>"> Add Anouncements </a> <br> <br> <br>
+                    <a class="editbtn" href="addAnouncementForm.php?id=<?php echo $id?>"> Add Announcements </a> <br> <br> <br>
                 </div>
             </div>
             <div>

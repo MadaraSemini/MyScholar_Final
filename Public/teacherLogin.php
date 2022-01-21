@@ -15,6 +15,8 @@ include_once("../Private/classes/FactoryDP/Factory.php");
       $username=$_POST['uname'];
       $password=$_POST['psw'];
       $encrypted_password=md5($password);
+      $connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 
   //     $connector=new Connector();
   // $connec=$connector->connectDatabase();
@@ -40,6 +42,12 @@ include_once("../Private/classes/FactoryDP/Factory.php");
   //       //$student=new Student($id,$firstName,$lastName,$username,$encrypted_password,$email,$district);
   //       $teacher->setProfPhoto($profilePhoto);
   //       $teacher->setId($id);
+  $query="select * from teacher WHERE Username='$username' AND Passkey='$encrypted_password'";
+  $query_run=mysqli_query($connec,$query);
+  $row = $query_run->fetch_array();
+  if(!is_array($row)){
+    header('location:index.php');
+  }
         $teacherFactory= new TeacherFactory($username,$encrypted_password);
         $teacher=$teacherFactory->anOperation($username,$encrypted_password);
     
