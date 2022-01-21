@@ -16,6 +16,8 @@ if (isset($_POST['loginbtn'])) {
   $username = $_POST['uname'];
   $password = $_POST['psw'];
   $encrypted_password = md5($password);
+  $connector = ConnectSingleton::getInstance();
+$connec = $connector->getConnection();
 
   // $connector=new Connector();
   // $connec=$connector->connectDatabase();
@@ -44,6 +46,12 @@ if (isset($_POST['loginbtn'])) {
   //   $student->setProfPhoto($profilePhoto);
   //   $student->setId($id);
   //   $student->setProfPhoto($profilePhoto);
+  $query="select * from student WHERE Username='$username' AND Passkey='$encrypted_password'";
+  $query_run=mysqli_query($connec,$query);
+  $row = $query_run->fetch_array();
+  if(!is_array($row)){
+    header('location:index.php');
+  }
   $StudentFactory = new StudentFactory();
   $student = $StudentFactory->anOperation($username, $encrypted_password);
   //echo $student->getFirstname();

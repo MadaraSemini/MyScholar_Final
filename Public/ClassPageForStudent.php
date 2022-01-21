@@ -260,7 +260,7 @@ $student_id=$student->getId();
             ?>
 
             <div>
-                <h3> Anouncements </h3>
+                <h3> Announcements </h3>
                 <div class="anouncements">
 
                     <?php foreach($anouncements as $anouncement){ ?>
