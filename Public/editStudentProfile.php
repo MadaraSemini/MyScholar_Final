@@ -110,14 +110,14 @@
         
                 }*/
     
-                // $firstName=mysqli_real_escape_string($connec,"$first_name");
-                // $lastName=mysqli_real_escape_string($connec,"$last_name");
-                // $username=mysqli_real_escape_string($connec,"$username");
-                // $password=mysqli_real_escape_string($connec,"$password");
-                // $email=mysqli_real_escape_string($connec,"$email");
-                // $grade=mysqli_real_escape_string($connec,"$grade");
-                // $district=mysqli_real_escape_string($connec,"$district");
-                // $filename=mysqli_real_escape_string($connec,"$filename");
+                $firstName=mysqli_real_escape_string($connec,"$first_name");
+                $lastName=mysqli_real_escape_string($connec,"$last_name");
+                $username=mysqli_real_escape_string($connec,"$username");
+                $password=mysqli_real_escape_string($connec,"$password");
+                $email=mysqli_real_escape_string($connec,"$email");
+                $grade=mysqli_real_escape_string($connec,"$grade");
+                $district=mysqli_real_escape_string($connec,"$district");
+                $filename=mysqli_real_escape_string($connec,"$filename");
                
                 
                 
@@ -304,8 +304,19 @@
             function Validate() {
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm_password").value;
+
+            // if(password.length<8){
+            //        alert("Password should be atleast 8 characters");
+            //        return false;
+            //    }
+
+            if(password.length<8) {  
+                //document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters"; 
+                alert("Passowrd should be atleast 8 characters"); 
+                return false;  
+            } 
             if (password != confirmPassword) {
-                alert("Passwords do not match.");
+                alert("Passwordmatch.");
                 return false;
             }
             return true;

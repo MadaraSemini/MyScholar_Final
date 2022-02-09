@@ -208,10 +208,29 @@
           <label for="discription">Description</label><br>
           <textarea id="discription" name="discription" placeholder="Enter a discription.." style="height:200px" value=<?php echo htmlspecialchars($description) ?>></textarea><br>
 
-          <button type="submit" name="submit" id="submit_button">submit</button>
+          <button type="submit" name="submit" id="submit_button"  onclick="return Validate()">submit</button>
           <a href="teacherLogin.php"> <button type="button" id="cancel-button" class="cl">cancel</button></a>
         </form>
     </div>
+    <script type="text/javascript">
+
+            function Validate() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+
+            if(password.length<8) {  
+                //document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters"; 
+                alert("Passowrd should be atleast 8 characters"); 
+                return false;  
+            } 
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+            }
+
+      </script>
     
 </body>
 </html>

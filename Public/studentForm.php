@@ -197,6 +197,12 @@
             function Validate() {
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm_password").value;
+
+            if(password.length<8) {  
+                //document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters"; 
+                alert("Passowrd should be atleast 8 characters"); 
+                return false;  
+            } 
             if (password != confirmPassword) {
                 alert("Passwords do not match.");
                 return false;
