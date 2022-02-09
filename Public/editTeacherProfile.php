@@ -33,7 +33,7 @@
     $contact_number=$teacher->getContactNumber();
     $district=$teacher->getDistrict();
     $email=$teacher->getEmail();
-    $password=$teacher->getPassword();
+    // $password=$teacher->getPassword();
 
     if(isset($_POST["submit"])){
         if(!empty($_POST["Firstname"])&& !empty($_POST["Lastname"]) && !empty($_POST["name"])  && !empty($_POST["email"]) && !empty($_POST["district"]) && !empty($_POST["contact"])){
@@ -46,15 +46,15 @@
             $fullname=$firstName." ".$lastName;
             $designation=$_POST["displayingName"];
             $description=$_POST["discription"];
-            $encrypted_password;
+            // $encrypted_password;
 
-            if(!empty($_POST["password"])){
-                $password=$_POST["password"];
-                $encrypted_password=md5($password);
-                $teacher->setPassword($encrypted_password);
-            }else{
-                $encrypted_password=$password;
-            }
+            // if(!empty($_POST["password"])){
+            //     $password=$_POST["password"];
+            //     $encrypted_password=md5($password);
+            //     $teacher->setPassword($encrypted_password);
+            // }else{
+            //     $encrypted_password=$password;
+            // }
 
 
             if(!empty($_POST["discription"])){
@@ -82,7 +82,7 @@
 
 
             if($_FILES['image']['size'] == 0 && $_FILES['image']['error'] == 0){
-                $sql="UPDATE teacher SET designation='$designation', first_name = '$firstName', last_name = '$lastName', Username='$username', passkey='$encrypted_password', email='$email', District='$district',contact_number='$contact_number', description='$description' WHERE Id='$id'";
+                $sql="UPDATE teacher SET designation='$designation', first_name = '$firstName', last_name = '$lastName', Username='$username',  email='$email', District='$district',contact_number='$contact_number', description='$description' WHERE Id='$id'";
 
                 if(mysqli_query($connec,$sql)){
                     //echo("successfull");
