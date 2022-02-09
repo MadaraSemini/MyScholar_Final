@@ -18,6 +18,9 @@
         $description = $_POST["description"];
         $classlist = $_POST['classlist'];
 
+        $heading=mysqli_real_escape_string($conn,"$heading");
+        $description=mysqli_real_escape_string($conn,"$description");
+
 
         if($_POST['submit']=="Submit"){
 
