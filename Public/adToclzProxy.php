@@ -84,6 +84,7 @@
                 <div class = details>
                     <p>Venue: <?php echo $classDetails['location']?></p>
                     <p>Time: <?php echo "from ". $classDetails['starttime']." to ".$classDetails['endtime']?></p>
+                    <p>On: <?php echo $classDetails['day']?></p>
                     <p>For: <?php echo "Grade ".$classDetails['grade']." students"?></p>
                     <p>Medium: <?php echo $classDetails['medium']?></p>
                     <p>Fees: <?php echo "Rs:".$classDetails['fee']."/="?></p>
