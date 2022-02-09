@@ -168,7 +168,8 @@
 
 
           <button type="submit" id="submit_button" name="submit"  onclick="return Validate()">submit</button>
-          <button type="cancel" id="cancel-button" class="cl">cancel</button>
+          <a href="teacherLogin.php"> <button type="button" id="cancel-button" class="cl">cancel</button></a>
+          <!-- <button type="cancel" id="cancel-button" class="cl">cancel</button> -->
 
         </form>
       </div>

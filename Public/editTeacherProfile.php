@@ -185,10 +185,10 @@
           <label for="name">User Name</label><br>
           <input type="text" id="name" name="name"  placeholder="Your user name.." value=<?php echo htmlspecialchars($username) ?> required >
       
-          <label for="password">Password</label><br/>
+          <!-- <label for="password">Password</label><br/>
           <input type="password" id="password" name="password" placeholder="Enter a password" >
 
-          <input type="password" placeholder="Confirm Password" id="confirm_password" ><br/>
+          <input type="password" placeholder="Confirm Password" id="confirm_password" ><br/> -->
 
             
           <label for="email">Email</label>
@@ -208,7 +208,7 @@
           <label for="discription">Description</label><br>
           <textarea id="discription" name="discription" placeholder="Enter a discription.." style="height:200px" value=<?php echo htmlspecialchars($description) ?>></textarea><br>
 
-          <button type="submit" name="submit" id="submit_button"  onclick="return Validate()">submit</button>
+          <button type="submit" name="submit" id="submit_button"  >submit</button>
           <a href="teacherLogin.php"> <button type="button" id="cancel-button" class="cl">cancel</button></a>
         </form>
     </div>

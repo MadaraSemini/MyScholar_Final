@@ -140,7 +140,7 @@ $conn = $connector->getConnection();
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 </div>
                 <h1>Log Out</h1>
-                <p><?php echo  'Mad'; ?> are you sure you want to log out?</p>
+                <p><?php echo  $name; ?> are you sure you want to log out?</p>
                 <form action="classCard.php" method="post">
                     <button id="log" type="submit" class="yes" name="logout">Yes</button>
                     <button id="log" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">No</button>

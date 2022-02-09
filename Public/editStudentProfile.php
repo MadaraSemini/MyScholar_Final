@@ -31,7 +31,7 @@
     $lastName=$student->getLastName();
     $fullname=$firstName." ".$lastName;
     $photo_name=$student->getProfPhoto();
-    $password=$student->getPassword();
+    // $password=$student->getPassword();
 
 
     if(isset($_POST["submit"])){
@@ -47,7 +47,7 @@
                 $district=$_POST["district"];
                 $fullname=$firstName." ".$lastName;
                 
-                $encrypted_password;
+                // $encrypted_password;
 
                 //echo $first_Name;
     
@@ -57,13 +57,13 @@
                 
     
                 //$student=new Student($firt_name,$last_name,$username,$password,$email,$district);
-                if(!empty($_POST["password"])){
-                    $password=$_POST["password"];
-                    $encrypted_password=md5($password);
-                    $student->setPassword($encrypted_password);
-                }else{
-                    $encrypted_password=$password;
-                }
+                // if(!empty($_POST["password"])){
+                //     $password=$_POST["password"];
+                //     $encrypted_password=md5($password);
+                //     $student->setPassword($encrypted_password);
+                // }else{
+                //     $encrypted_password=$password;
+                // }
 
 
                 if(($_POST["grade"])!="None"){
@@ -110,14 +110,14 @@
         
                 }*/
     
-                $firstName=mysqli_real_escape_string($connec,"$first_name");
-                $lastName=mysqli_real_escape_string($connec,"$last_name");
-                $username=mysqli_real_escape_string($connec,"$username");
-                $password=mysqli_real_escape_string($connec,"$password");
-                $email=mysqli_real_escape_string($connec,"$email");
-                $grade=mysqli_real_escape_string($connec,"$grade");
-                $district=mysqli_real_escape_string($connec,"$district");
-                $filename=mysqli_real_escape_string($connec,"$filename");
+                // $firstName=mysqli_real_escape_string($connec,"$first_name");
+                // $lastName=mysqli_real_escape_string($connec,"$last_name");
+                // $username=mysqli_real_escape_string($connec,"$username");
+                // // $password=mysqli_real_escape_string($connec,"$password");
+                // $email=mysqli_real_escape_string($connec,"$email");
+                // $grade=mysqli_real_escape_string($connec,"$grade");
+                // $district=mysqli_real_escape_string($connec,"$district");
+                // $filename=mysqli_real_escape_string($connec,"$filename");
                
                 
                 
@@ -125,7 +125,7 @@
     
     
                 //$sql="INSERT INTO student(First_name, Last_name, Username, passkey, email, grade, District, profile_photo) VALUES('$first_name','$last_name','$username', '$encrypted_password', '$email', '$grade', '$district', '$filename');";
-                $sql="UPDATE student SET First_name = '$firstName', Last_name = '$lastName', Username='$username', passkey='$encrypted_password', email='$email', grade='$grade', District='$district' WHERE id='$id'";
+                $sql="UPDATE student SET First_name = '$firstName', Last_name = '$lastName', Username='$username', email='$email', grade='$grade', District='$district' WHERE id='$id'";
 
                 if($_FILES['image']['size'] == 0 && $_FILES['image']['error'] == 0){
                     $str_arr = explode ("/", $photo_name);
@@ -166,7 +166,7 @@
 
                     if(mysqli_query($connec,$sql1)){
                         //echo("successfull");
-                        //header("Location: studentProfile.php");
+                        header("Location: studentProfile.php");
                     }else{
                         echo("error".mysqli_error($connec));
                     }
@@ -178,7 +178,7 @@
     
                 if(mysqli_query($connec,$sql)){
                     //echo("successfull");
-                    //header("Location: studentProfile.php");
+                    header("Location: studentProfile.php");
                 }else{
                     echo("error".mysqli_error($connec));
                 }
@@ -254,10 +254,10 @@
           <label for="name">User Name</label>
           <input type="text" id="name" name="name"  placeholder="Your user name.." value=<?php echo htmlspecialchars($username) ?> required >
       
-          <label for="password">Password</label><br/>
+          <!-- <label for="password">Password</label><br/>
           <input type="password" id="password" name="password" placeholder="Enter a password" >
 
-          <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" ><br/>
+          <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" ><br/> -->
 
 
           <label for="email">Email</label>
